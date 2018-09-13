@@ -26,7 +26,7 @@ export class ReplayService {
       })
     };
 
-    this.http.get('http://localhost:8000/api/user', httpOptions).subscribe(v => {
+    this.http.get('/api/user', httpOptions).subscribe(v => {
       this.subject.next("something");
       this.subject.complete();
     });

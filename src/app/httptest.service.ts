@@ -18,7 +18,7 @@ export class HttptestService {
           'Content-Type': 'application/json'
         })
       };
-      return this.http.get('http://localhost:8000/api/result1', httpOptions);
+      return this.http.get('/api/result1', httpOptions);
     }
     ));
   }
@@ -29,6 +29,6 @@ export class HttptestService {
         'Content-Type': 'application/json'
       })
     };
-    return this.http.get('http://localhost:8000/api/result2', httpOptions);
+    return this.http.get('/api/result2', httpOptions);
   }
 }

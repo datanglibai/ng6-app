@@ -1,8 +1,8 @@
-var express = require('express')
-var cors = require('cors')
+let express = require('express')
+let cors = require('cors')
 
 
-var app = express();
+let app = express();
 app.use(cors());
 
 app.listen(8000, () => {
