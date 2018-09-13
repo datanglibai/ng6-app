@@ -19,7 +19,7 @@ export class MyModule1 {
     public static forRoot(): ModuleWithProviders {
         return {
             ngModule: MyModule1,
-            providers: [...LoggerModule.forRoot().providers, ...SignalRModule.forRoot().providers]
+            providers: []
         };
     }
 
