@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Observable } from '../../node_modules/rxjs';
-import { mergeMap } from '../../node_modules/rxjs/operators';
-import { ReplayService } from './replay.service';
+import { Observable } from 'rxjs';
+import { mergeMap } from 'rxjs/operators';
+import { AppDataDependencyService } from './app-data-dependency.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HttptestService {
+export class AppDataService {
 
-  constructor(private http: HttpClient, private replayService: ReplayService) { }
+  constructor(private http: HttpClient, private appDataDependencyService: AppDataDependencyService) { 
+    console.log('Providers: AppData Service constructor');
+  }
 
   getResult1(): Observable<any> {
-    return this.replayService.getSomething().pipe(mergeMap(v => {
+    return this.appDataDependencyService.getSomething().pipe(mergeMap(v => {
       let httpOptions = {
         headers: new HttpHeaders({
           'Content-Type': 'application/json'

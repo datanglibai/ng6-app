@@ -9,6 +9,10 @@ app.listen(8000, () => {
     console.log('Server started!');
 });
 
+app.route('/').get((req, res) => {
+    res.sendFile(path.join(__dirname, './dist/ng6-app/index.html'));
+});
+
 app.route('/api/result1').get((req, res) => {
     console.log("result1 api called.");
 

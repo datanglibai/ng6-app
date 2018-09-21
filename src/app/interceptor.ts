@@ -3,12 +3,14 @@ import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest, HttpResponse } fr
 import { Observable } from "rxjs";
 
 import { map, mergeMap } from "rxjs/operators";
-import { ReplayService } from "./replay.service";
+import { AppDataDependencyService } from "./app-data-dependency.service";
 
 
 @Injectable()
 export class TestHttpInterceptor implements HttpInterceptor {
-    constructor(private replayService: ReplayService) { }
+    constructor(private appDataDependencyService: AppDataDependencyService) { 
+        console.log('Http interceptor constructor');
+    }
 
     public intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {        
 
@@ -18,7 +20,7 @@ export class TestHttpInterceptor implements HttpInterceptor {
 
         console.log(`********* in intercepror ${req.url}`);
 
-        return this.replayService.getSomething().pipe(mergeMap((v) => {
+        return this.appDataDependencyService.getSomething().pipe(mergeMap((v) => {
             let newRequest: HttpRequest<any> = req.clone({
                 headers: req.headers.set("Accept", 'application/json')
             });

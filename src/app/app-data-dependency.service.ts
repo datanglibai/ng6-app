@@ -5,12 +5,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class ReplayService {
+export class AppDataDependencyService {
 
   private subject: ReplaySubject<string>;
   private something$: Observable<string>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    console.log('Providers: AppDataDependency Service constructor');
+   }
 
   public getSomething() {
     if (this.subject)
