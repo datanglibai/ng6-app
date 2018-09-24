@@ -1,27 +1,74 @@
-# Ng6App
+# Ng6App, A project to share knowledge of NgModule, Bootstrap and DI
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
+This project is a sample for KS, itwas generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.1.5.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Ngmodule key words
 
-## Code scaffolding
+### declarations
+set of components, directives, and pipes belongs to (and used in templates) this module.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### imports 
+The set of NgModules whose exported declarables are available to templates in this module.
 
-## Build
+### exports 
+The set of components, directives, and pipes declared in this NgModule that can be used in the template of any component that is part of an NgModule that imports this NgModule. Exported declarations are the module's public API.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+### providers
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Bootstrap process
+- common case:
+from module constructor to component constructor, and dependency first.
+- with APP_INITIALIZER: 
+ bootstrap process, and why sometimes it is not run before all your code logic.
 
-## Running end-to-end tests
+## DI
+### provider and injector concept. 
+### providers && providedIn
+### injector hierarchy
+- https://angular.io/guide/hierarchical-dependency-injection
+- platform injector
+- root injector
+- lazy loading module injector, eager loading and lazy loading component /routing component
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+#### how many instances of your services in your app?
 
-## Further help
+### injector bubbling
+- in constructor The parameter type serves as the injector lookup token  
+- from bottom to top
+  
+### when to inject in module/component level
+- isolate usage scope
+- hold different state for multiple edit sessions.
+- specialized provider: different implementation from root/parent providers.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+
+### built-in injection-token constants
+- PLATFORM_INITIALIZER: Callback is invoked when a platform is initialized.
+- APP_BOOTSTRAP_LISTENER: Callback is invoked for each component that is bootstrapped. The handler function receives the ComponentRef instance of the bootstrapped component.
+- APP_INITIALIZER
+
+### Service valued parameters 
+  - @Optional 
+    - return null if it is not provide. for example a logger service sometimes is optional
+  - @Host
+    - host means DI search stopped at the parent of current component
+  - @Self
+    - DI search stopped at component itself
+  - @SkipSelf 
+    - DI search start from parent component
+### how to provide
+    - useValue
+    - useClass
+    - useExisting
+    - useFactory
+    - live example,  
+https://angular.io/guide/dependency-injection-in-action
+
+
+## next will/might be...
+- forRoot && forChild
+- Routing
+- Tree Shaking
