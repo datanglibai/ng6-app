@@ -1,6 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { AppDataService } from './app-data.service';
 import { Observable, forkJoin } from 'rxjs';
+import { BooksService, FruitsService } from '../lib';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,10 @@ import { Observable, forkJoin } from 'rxjs';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterViewInit{
-  constructor(private httptestService: AppDataService){
+  constructor(private httptestService: AppDataService,
+  private booksService: BooksService,
+//private fruitsService: FruitsService
+){
     console.log('Bootstrap: AppCompnent constructor.');
   }
   ngAfterViewInit(): void {

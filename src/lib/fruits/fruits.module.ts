@@ -1,13 +1,13 @@
 import { NgModule, ModuleWithProviders, Optional, SkipSelf } from "@angular/core";
 import { FruitsComponent } from './fruits.component';
-import { FruitsService } from "./fruits.service";
-
+import { Fruits2Component } from './fruits2.component';
+//import { FruitsService } from "./index";
 
 @NgModule({
-    declarations: [FruitsComponent],
+    declarations: [FruitsComponent, Fruits2Component],
     imports: [],
-    providers: [],
-    exports: [FruitsComponent],
+    //providers: [FruitsService],
+    exports: [FruitsComponent, Fruits2Component],
 })
 export class FruitsModule {
     /**
@@ -20,7 +20,7 @@ export class FruitsModule {
     //     };
     // }
 
-    constructor(/*private fruitsService: FruitsService*/) {
+    constructor( ) {
         console.log('Import: Fruits module constructor.');
     }
 }

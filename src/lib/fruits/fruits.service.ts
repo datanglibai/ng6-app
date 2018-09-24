@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -6,6 +6,6 @@ import { Injectable } from '@angular/core';
 export class FruitsService {
 
   constructor() { 
-    console.log('Fruits service constructor.');
+    console.log('Providers: Fruits service constructor.');
    }
 }

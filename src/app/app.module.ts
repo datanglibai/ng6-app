@@ -11,6 +11,8 @@ import { FruitsModule } from '../lib/fruits/fruits.module';
 import { BooksService } from '../lib/books/books.service';
 import { AuthorsService } from '../lib/books/authors.service';
 import { AppInitializers } from './app.initializers';
+import { AppRoutingModule }     from './app-routing.module';
+import { FruitsComponent } from '../lib/fruits/fruits.component';
 
 export function setAppInitializerState(appInitializers: AppInitializers) {
   return () => appInitializers.setAppInitializerState();
@@ -25,7 +27,8 @@ export function setAppInitializerState(appInitializers: AppInitializers) {
     BrowserModule,
     HttpClientModule,
     BooksModule,
-    FruitsModule
+    FruitsModule,
+    //AppRoutingModule,
   ],
   providers: [
     AppInitializers,
@@ -35,10 +38,6 @@ export function setAppInitializerState(appInitializers: AppInitializers) {
       useClass: TestHttpInterceptor,
       multi: true
     },
-    // BooksService,
-    // AuthorsService,
-    // AppDataService,
-    // AppDataDependencyService,
   ],
   bootstrap: [AppComponent]
 })
