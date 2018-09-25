@@ -17,6 +17,14 @@ The set of components, directives, and pipes declared in this NgModule that can 
 ### providers
 
 
+### bootstrap
+
+### entryComponents 
+- by bootstrap
+- by routing
+- https://angular.io/guide/entry-components
+
+
 ## Bootstrap process
 - common case:
 from module constructor to component constructor, and dependency first.
