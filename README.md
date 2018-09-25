@@ -30,6 +30,7 @@ from module constructor to component constructor, and dependency first.
 - https://angular.io/guide/hierarchical-dependency-injection
 - platform injector
 - root injector
+- component injector
 - lazy loading module injector, eager loading and lazy loading component /routing component
 
 #### how many instances of your services in your app?

@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, APP_INITIALIZER } from '@angular/core';
+import { NgModule, APP_INITIALIZER, PLATFORM_INITIALIZER, APP_BOOTSTRAP_LISTENER, ComponentRef } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppDataDependencyService } from './app-data-dependency.service';
@@ -18,7 +18,6 @@ export function setAppInitializerState(appInitializers: AppInitializers) {
   return () => appInitializers.setAppInitializerState();
 }
 
-
 @NgModule({
   declarations: [
     AppComponent
@@ -30,14 +29,15 @@ export function setAppInitializerState(appInitializers: AppInitializers) {
     FruitsModule,
     //AppRoutingModule,
   ],
-  providers: [
-    AppInitializers,
-    { provide: APP_INITIALIZER, useFactory: setAppInitializerState, deps: [AppInitializers], multi: true },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TestHttpInterceptor,
-      multi: true
-    },
+  providers: [    
+    // { provide: APP_BOOTSTRAP_LISTENER, useFactory: () => { console.log('--- APP_BOOTSTRAP_LISTENER: Platform initialized'); return (component: ComponentRef<any>) => {};}, multi: true },
+    // AppInitializers, 
+    // { provide: APP_INITIALIZER, useFactory: setAppInitializerState, deps: [AppInitializers], multi: true },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TestHttpInterceptor,
+    //   multi: true
+    // },
   ],
   bootstrap: [AppComponent]
 })

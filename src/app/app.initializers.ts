@@ -6,11 +6,11 @@ import { promise } from '../../node_modules/protractor';
 @Injectable()
 export class AppInitializers {
     constructor() {
-        console.log('AppInitializers constructor');
+        console.log('APP_INITIALIZER: AppInitializers constructor');
      }
     
     setAppInitializerState(): Promise<boolean> {
-        console.log('AppInitializers setAppInitializerState called.');
+        console.log('APP_INITIALIZER: AppInitializers setAppInitializerState called.');
         return Promise.resolve(true);
     }
 }
